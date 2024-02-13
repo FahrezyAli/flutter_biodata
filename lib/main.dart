@@ -132,7 +132,7 @@ class MyHomePageState extends State<MyHomePage> {
           Container(
             margin: defaultEdge,
             child: const Image(
-              image: AssetImage('images/profile.jpg'),
+              image: AssetImage('assets/images/profile.jpg'),
             ),
           ),
           createBioRow(
