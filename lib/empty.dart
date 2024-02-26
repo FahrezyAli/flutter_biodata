@@ -1,4 +1,4 @@
-import 'package:biodata/main.dart';
+import 'package:biodata/data.dart';
 import 'package:flutter/material.dart';
 
 class EmptyPage extends StatelessWidget {
@@ -13,10 +13,10 @@ class EmptyPage extends StatelessWidget {
         title: Text(title),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: createBioRow(
-          "Pengalaman",
-          "Pengalaman saya bisa dibilang Alhamdulillah aman dan nyaman. Saya sudah memiliki sedikit pengalaman dengan kode sehingga saya mampu dengan baik mengikuti mata kuliah Sistem Informasi. Namun saya sedikit mengalami kesulitan dalam Kalkulus dan Matrix.",
-          Theme.of(context).colorScheme.primary),
+      body: const Data(
+        "Pengalaman",
+        "Pengalaman saya bisa dibilang Alhamdulillah aman dan nyaman. Saya sudah memiliki sedikit pengalaman dengan kode sehingga saya mampu dengan baik mengikuti mata kuliah Sistem Informasi. Namun saya sedikit mengalami kesulitan dalam Kalkulus dan Matrix.",
+      ),
     );
   }
 }

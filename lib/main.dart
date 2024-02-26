@@ -1,5 +1,8 @@
+import 'package:biodata/data.dart';
 import 'package:biodata/empty.dart';
+import 'package:biodata/page.dart';
 import 'package:biodata/school.dart';
+import 'package:biodata/tabbar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,55 +11,6 @@ void main() {
 
 EdgeInsets defaultEdge =
     const EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0);
-
-Container createBioRow(String rowName, String rowDesc, Color color) {
-  return Container(
-    margin: defaultEdge,
-    decoration: BoxDecoration(
-      border: Border.all(color: color, width: 2.0),
-      borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-    ),
-    child: Padding(
-      padding: const EdgeInsets.all(3.0),
-      child: Text.rich(
-        TextSpan(
-          text: rowName,
-          style: const TextStyle(fontSize: 11.0),
-          children: <TextSpan>[
-            TextSpan(
-              text: "\n$rowDesc",
-              style: const TextStyle(fontSize: 15.0),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
-}
-
-Ink createClickableBioRow(String rowName, String rowDesc, Color color) {
-  return Ink(
-    decoration: BoxDecoration(
-      border: Border.all(color: color, width: 2.0),
-      borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-    ),
-    child: Padding(
-      padding: const EdgeInsets.all(3.0),
-      child: Text.rich(
-        TextSpan(
-          text: rowName,
-          style: const TextStyle(fontSize: 11.0),
-          children: <TextSpan>[
-            TextSpan(
-              text: "\n$rowDesc",
-              style: const TextStyle(fontSize: 15.0),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
-}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -127,153 +81,22 @@ class MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: ListView(
-        children: [
-          Container(
-            margin: defaultEdge,
-            child: const Image(
-              image: AssetImage('assets/images/profile.jpg'),
-            ),
+      body: const MyTabBar(
+        [
+          Tab(
+            icon: Icon(Icons.account_box_sharp),
           ),
-          createBioRow(
-            "Nama",
-            "Ali Ahmad Fahrezy",
-            Theme.of(context).colorScheme.primary,
+          Tab(
+            icon: Icon(Icons.school_sharp),
           ),
-          createBioRow(
-            "Alamat",
-            "Jalan Sedati Agung Ⅱ No.21, RT.05/RW.03, Sedati Agung, Sedati",
-            Theme.of(context).colorScheme.primary,
+          Tab(
+            icon: Icon(Icons.add_chart_sharp),
           ),
-          createBioRow(
-            "Tempat/Tanggal Lahir",
-            "Medan/24 Desember 2004",
-            Theme.of(context).colorScheme.primary,
-          ),
-          createBioRow(
-            "Hobi",
-            "Mengetik",
-            Theme.of(context).colorScheme.primary,
-          ),
-          Padding(
-            padding: defaultEdge,
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SchoolPage(
-                      "https://yt3.googleusercontent.com/ytc/AIf8zZQmea_8Ghk0wcgsCWpdMaunYOQI36VQ7T3RGMeXKw=s900-c-k-c0x00ffffff-no-rj",
-                      "SDS Taman Harapan",
-                      "Jl.seksama No.183, BINJAI, Kec. Medan Denai, Kota Medan Prov. Sumatera Utara ",
-                      "A",
-                    ),
-                  ),
-                );
-              },
-              child: createClickableBioRow(
-                "SD",
-                "SD Taman Harapan",
-                Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ),
-          Padding(
-            padding: defaultEdge,
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SchoolPage(
-                      "https://linipost.com/wp-content/uploads/2020/07/IMG_20200710_172542.jpg",
-                      "SMP Negeri 6 Medan",
-                      "Jl. Bahagia No. 42 Medan, Teladan Timur, Kec. Medan Kota, Kota Medan Prov. Sumatera Utara ",
-                      "A",
-                    ),
-                  ),
-                );
-              },
-              child: createClickableBioRow(
-                "SMP",
-                "SMP Negeri 6 Medan",
-                Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ),
-          Padding(
-            padding: defaultEdge,
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SchoolPage(
-                      "https://www.jurnalasia.com/wp-content/uploads/2019/07/IMG-20190709-WA0065.jpg",
-                      "SMA Negeri 5 Medan",
-                      "JL. PELAJAR NO. 17, Teladan Timur, Kec. Medan Kota, Kota Medan Prov. Sumatera Utara",
-                      "A",
-                    ),
-                  ),
-                );
-              },
-              child: createClickableBioRow(
-                "SMA",
-                "SMA Negeri 5 Medan",
-                Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ),
-          Padding(
-            padding: defaultEdge,
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const UniversityPage(
-                      "https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/07/12/FotoJet-2023-07-12T060228238-66900618.jpg",
-                      "Universitas Airlangga",
-                      "Kampus C Mulyorejo - Kec. Mulyorejo, Kota Surabaya Prov. Jawa Timur",
-                      "S1 Sistem Informasi",
-                      "Unggul",
-                    ),
-                  ),
-                );
-              },
-              child: createClickableBioRow(
-                "Perguruan Tinggi",
-                "Universitas Airlangga",
-                Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ),
-          Padding(
-            padding: defaultEdge,
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const EmptyPage("Pengalaman"),
-                  ),
-                );
-              },
-              child: createClickableBioRow(
-                "Pengalaman",
-                " ->",
-                Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20.0),
-            child: createBioRow(
-              "Keahlian",
-              "Software Programming",
-              Theme.of(context).colorScheme.primary,
-            ),
-          ),
+        ],
+        [
+          Biodata(),
+          Akademika(),
+          Inputs(),
         ],
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:biodata/data.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -23,7 +24,7 @@ class SchoolPage extends StatelessWidget {
         children: [
           Container(
             margin: defaultEdge,
-            height: MediaQuery.sizeOf(context).height * 0.5,
+            height: MediaQuery.sizeOf(context).height * 0.25,
             width: MediaQuery.sizeOf(context).width,
             child: Stack(
               children: [
@@ -31,18 +32,19 @@ class SchoolPage extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 ),
                 Center(
-                  child: FadeInImage.memoryNetwork(
-                    placeholder: kTransparentImage,
-                    image: linkFoto,
-                    fit: BoxFit.scaleDown,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(25.0),
+                    child: FadeInImage.memoryNetwork(
+                      placeholder: kTransparentImage,
+                      image: linkFoto,
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          createBioRow("Alamat", alamat, Theme.of(context).colorScheme.primary),
-          createBioRow(
-              "Akreditasi", akreditasi, Theme.of(context).colorScheme.primary),
+          Data("Alamat", alamat),
+          Data("Akreditasi", akreditasi),
         ],
       ),
     );
@@ -71,7 +73,7 @@ class UniversityPage extends StatelessWidget {
         children: [
           Container(
             margin: defaultEdge,
-            height: MediaQuery.sizeOf(context).height * 0.5,
+            height: MediaQuery.sizeOf(context).height * 0.25,
             width: MediaQuery.sizeOf(context).width,
             child: Stack(
               children: [
@@ -79,19 +81,20 @@ class UniversityPage extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 ),
                 Center(
-                  child: FadeInImage.memoryNetwork(
-                    placeholder: kTransparentImage,
-                    image: linkFoto,
-                    fit: BoxFit.scaleDown,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(25.0),
+                    child: FadeInImage.memoryNetwork(
+                      placeholder: kTransparentImage,
+                      image: linkFoto,
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          createBioRow("Alamat", alamat, Theme.of(context).colorScheme.primary),
-          createBioRow("Prodi", prodi, Theme.of(context).colorScheme.primary),
-          createBioRow("Akreditasi Prodi", akreditasi,
-              Theme.of(context).colorScheme.primary),
+          Data("Alamat", alamat),
+          Data("Prodi", prodi),
+          Data("Akreditasi Prodi", akreditasi),
         ],
       ),
     );
