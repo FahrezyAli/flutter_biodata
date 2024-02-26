@@ -1,7 +1,4 @@
-import 'package:biodata/data.dart';
-import 'package:biodata/empty.dart';
 import 'package:biodata/page.dart';
-import 'package:biodata/school.dart';
 import 'package:biodata/tabbar.dart';
 import 'package:flutter/material.dart';
 
