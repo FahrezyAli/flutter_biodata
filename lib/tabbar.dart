@@ -9,7 +9,7 @@ class MyTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: icons.length,
       child: Scaffold(
         appBar: AppBar(
           toolbarHeight: 0.0,
